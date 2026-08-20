@@ -1,0 +1,94 @@
+title: "Nama Kamu"
+tagline: "Research Notebook"
+description: "Log penelitian, progress, hasil komputasi, lecture notes, dan paper."
+email: "email-kamu@contoh.ac.id"
+baseurl: ""            # ganti jadi "/nama-repo" kalau di-deploy sebagai project page (bukan user/org page)
+url: ""                 # ganti jadi "https://username.github.io"
+github_username: "username-kamu"
+
+markdown: kramdown
+permalink: /daily-log/:year/:month/:day/:title/
+
+collections:
+  research:
+    output: true
+    permalink: /research-progress/:path/
+  notes:
+    output: true
+    permalink: /lecture-notes/:path/
+  papers:
+    output: true
+    permalink: /papers/:path/
+  results:
+    output: true
+    permalink: /computational-results/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      section: "Daily Log"
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: entry
+      collection_key: research
+      section: "Research Progress"
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: entry
+      collection_key: notes
+      section: "Lecture Notes"
+  - scope:
+      path: ""
+      type: papers
+    values:
+      layout: entry
+      collection_key: papers
+      section: "Papers"
+  - scope:
+      path: ""
+      type: results
+    values:
+      layout: entry
+      collection_key: results
+      section: "Computational Results"
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+nav:
+  - title: "Home"
+    url: "/"
+    tab: "00"
+  - title: "Daily Log"
+    url: "/daily-log/"
+    tab: "01"
+  - title: "Research Progress"
+    url: "/research-progress/"
+    tab: "02"
+  - title: "Computational Results"
+    url: "/computational-results/"
+    tab: "03"
+  - title: "Lecture Notes"
+    url: "/lecture-notes/"
+    tab: "04"
+  - title: "Papers"
+    url: "/papers/"
+    tab: "05"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
