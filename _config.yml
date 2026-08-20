@@ -1,7 +1,7 @@
-title: "Nama Kamu"
+title: "AhyadPhysics"
 tagline: "Research Notebook"
 description: "Log penelitian, progress, hasil komputasi, lecture notes, dan paper."
-email: "email-kamu@contoh.ac.id"
+email: "muhammad01ahyad@apps.ipb.ac.id"
 baseurl: ""            # ganti jadi "/nama-repo" kalau di-deploy sebagai project page (bukan user/org page)
 url: ""                 # ganti jadi "https://username.github.io"
 github_username: "username-kamu"
