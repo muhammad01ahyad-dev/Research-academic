@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  <div class="site-shell">
+    <p>© {{ site.time | date: '%Y' }} {{ site.title }} — dibangun dengan Jekyll, di-hosting di GitHub Pages.
+    {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+    {% if site.email %} · <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
+    </p>
+  </div>
+</footer>
