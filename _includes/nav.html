@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="site-mark">
+      <span class="brand">{{ site.title }}</span>
+      <span class="tagline">{{ site.tagline }}</span>
+    </div>
+    <ul class="tabs">
+      {% assign current = page.url | remove: 'index.html' %}
+      {% for item in site.nav %}
+        {% assign item_url = item.url | relative_url %}
+        <li>
+          <a href="{{ item_url }}" {% if page.url == item.url %}class="active"{% endif %}>
+            <span class="tab-num">{{ item.tab }}</span>{{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</header>
