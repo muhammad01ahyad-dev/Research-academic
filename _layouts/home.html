@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<section class="hero site-shell fade-in">
+  <div class="eyebrow">Buku catatan penelitian — diperbarui berkala</div>
+  <h1>{{ page.hero_title | default: site.title }}</h1>
+  <p class="lede">{{ content }}</p>
+  <div class="hero-meta">
+    <span>{{ site.posts | size }} entri daily log</span>
+    <span>{{ site.research | size }} progress penelitian</span>
+    <span>{{ site.results | size }} hasil komputasi</span>
+    <span>{{ site.papers | size }} paper</span>
+    <span>{{ site.notes | size }} lecture notes</span>
+  </div>
+</section>
+
+<section class="site-shell">
+  <div class="section-head">
+    <div class="eyebrow">Aktivitas terbaru</div>
+    <h2>Update terkini</h2>
+  </div>
+
+  {% assign recent_posts = site.posts | sort: 'date' | reverse %}
+  {% assign recent_research = site.research | sort: 'date' | reverse %}
+  {% assign recent = recent_posts | concat: recent_research %}
+  {% assign recent = recent | concat: site.results %}
+  {% assign recent = recent | sort: 'date' | reverse %}
+
+  {% if recent.size > 0 %}
+  <div class="log-rail">
+    {% for item in recent limit: 6 %}
+    <article class="card">
+      <div class="meta">
+        <span>{{ item.date | date: "%d %b %Y" }}</span>
+        <span>{{ item.section }}</span>
+      </div>
+      <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+      {% if item.excerpt %}<p>{{ item.excerpt | strip_html | truncatewords: 28 }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="empty-state">// belum ada entri — mulai tulis daily log pertamamu di folder _posts/</p>
+  {% endif %}
+</section>
